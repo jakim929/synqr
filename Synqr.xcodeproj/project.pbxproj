@@ -7,14 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A452ABA1C2E823F00155EB0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A452AB91C2E823F00155EB0 /* Constants.swift */; };
 		1A49BF681C2A98C90033F036 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A49BF671C2A98C90033F036 /* AppDelegate.swift */; };
-		1A49BF6A1C2A98C90033F036 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A49BF691C2A98C90033F036 /* FirstViewController.swift */; };
-		1A49BF6C1C2A98C90033F036 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A49BF6B1C2A98C90033F036 /* SecondViewController.swift */; };
+		1A49BF6A1C2A98C90033F036 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A49BF691C2A98C90033F036 /* ScanViewController.swift */; };
+		1A49BF6C1C2A98C90033F036 /* QRCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A49BF6B1C2A98C90033F036 /* QRCardViewController.swift */; };
 		1A49BF6F1C2A98C90033F036 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A49BF6D1C2A98C90033F036 /* Main.storyboard */; };
 		1A49BF711C2A98C90033F036 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A49BF701C2A98C90033F036 /* Assets.xcassets */; };
 		1A49BF741C2A98C90033F036 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A49BF721C2A98C90033F036 /* LaunchScreen.storyboard */; };
 		1A49BF7F1C2A98C90033F036 /* SynqrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A49BF7E1C2A98C90033F036 /* SynqrTests.swift */; };
 		1A49BF8A1C2A98C90033F036 /* SynqrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A49BF891C2A98C90033F036 /* SynqrUITests.swift */; };
+		1A49BF9A1C2A99190033F036 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A49BF981C2A99190033F036 /* FBSDKCoreKit.framework */; };
+		1A49BF9B1C2A99190033F036 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A49BF991C2A99190033F036 /* FBSDKLoginKit.framework */; };
+		1A49BF9E1C2A9C460033F036 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A49BF9D1C2A9C460033F036 /* SwiftyJSON.swift */; };
+		1AB42DD91C2E633800EBB59C /* EditDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB42DD81C2E633800EBB59C /* EditDataCell.swift */; };
+		1AB42DDB1C2E646500EBB59C /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB42DDA1C2E646500EBB59C /* DetailTableViewController.swift */; };
+		1AB42DDD1C2E64B600EBB59C /* FBLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB42DDC1C2E64B600EBB59C /* FBLoginViewController.swift */; };
+		1AB6BD131C2AAF6D00C615EB /* ContactPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB6BD121C2AAF6D00C615EB /* ContactPanelViewController.swift */; };
+		1AB6BD151C2AB12D00C615EB /* SynqrCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB6BD141C2AB12D00C615EB /* SynqrCode.swift */; };
+		1AB6BD171C2AB1B400C615EB /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB6BD161C2AB1B400C615EB /* MainTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +45,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A452AB91C2E823F00155EB0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1A49BF641C2A98C90033F036 /* Synqr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Synqr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A49BF671C2A98C90033F036 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1A49BF691C2A98C90033F036 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		1A49BF6B1C2A98C90033F036 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		1A49BF691C2A98C90033F036 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		1A49BF6B1C2A98C90033F036 /* QRCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCardViewController.swift; sourceTree = "<group>"; };
 		1A49BF6E1C2A98C90033F036 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1A49BF701C2A98C90033F036 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A49BF731C2A98C90033F036 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +60,16 @@
 		1A49BF851C2A98C90033F036 /* SynqrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SynqrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A49BF891C2A98C90033F036 /* SynqrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynqrUITests.swift; sourceTree = "<group>"; };
 		1A49BF8B1C2A98C90033F036 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A49BF971C2A98FA0033F036 /* Synqr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Synqr-Bridging-Header.h"; sourceTree = "<group>"; };
+		1A49BF981C2A99190033F036 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		1A49BF991C2A99190033F036 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		1A49BF9D1C2A9C460033F036 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		1AB42DD81C2E633800EBB59C /* EditDataCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditDataCell.swift; sourceTree = "<group>"; };
+		1AB42DDA1C2E646500EBB59C /* DetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
+		1AB42DDC1C2E64B600EBB59C /* FBLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBLoginViewController.swift; sourceTree = "<group>"; };
+		1AB6BD121C2AAF6D00C615EB /* ContactPanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactPanelViewController.swift; sourceTree = "<group>"; };
+		1AB6BD141C2AB12D00C615EB /* SynqrCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynqrCode.swift; sourceTree = "<group>"; };
+		1AB6BD161C2AB1B400C615EB /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +77,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A49BF9B1C2A99190033F036 /* FBSDKLoginKit.framework in Frameworks */,
+				1A49BF9A1C2A99190033F036 /* FBSDKCoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +102,7 @@
 		1A49BF5B1C2A98C90033F036 = {
 			isa = PBXGroup;
 			children = (
+				1A49BF9C1C2A99240033F036 /* Frameworks */,
 				1A49BF661C2A98C90033F036 /* Synqr */,
 				1A49BF7D1C2A98C90033F036 /* SynqrTests */,
 				1A49BF881C2A98C90033F036 /* SynqrUITests */,
@@ -100,12 +124,21 @@
 			isa = PBXGroup;
 			children = (
 				1A49BF671C2A98C90033F036 /* AppDelegate.swift */,
-				1A49BF691C2A98C90033F036 /* FirstViewController.swift */,
-				1A49BF6B1C2A98C90033F036 /* SecondViewController.swift */,
-				1A49BF6D1C2A98C90033F036 /* Main.storyboard */,
 				1A49BF701C2A98C90033F036 /* Assets.xcassets */,
-				1A49BF721C2A98C90033F036 /* LaunchScreen.storyboard */,
+				1A452AB91C2E823F00155EB0 /* Constants.swift */,
+				1AB6BD121C2AAF6D00C615EB /* ContactPanelViewController.swift */,
+				1AB42DDA1C2E646500EBB59C /* DetailTableViewController.swift */,
+				1AB42DD81C2E633800EBB59C /* EditDataCell.swift */,
+				1AB42DDC1C2E64B600EBB59C /* FBLoginViewController.swift */,
 				1A49BF751C2A98C90033F036 /* Info.plist */,
+				1A49BF721C2A98C90033F036 /* LaunchScreen.storyboard */,
+				1A49BF6D1C2A98C90033F036 /* Main.storyboard */,
+				1AB6BD161C2AB1B400C615EB /* MainTableViewController.swift */,
+				1A49BF6B1C2A98C90033F036 /* QRCardViewController.swift */,
+				1A49BF691C2A98C90033F036 /* ScanViewController.swift */,
+				1A49BF9D1C2A9C460033F036 /* SwiftyJSON.swift */,
+				1A49BF971C2A98FA0033F036 /* Synqr-Bridging-Header.h */,
+				1AB6BD141C2AB12D00C615EB /* SynqrCode.swift */,
 			);
 			path = Synqr;
 			sourceTree = "<group>";
@@ -126,6 +159,15 @@
 				1A49BF8B1C2A98C90033F036 /* Info.plist */,
 			);
 			path = SynqrUITests;
+			sourceTree = "<group>";
+		};
+		1A49BF9C1C2A99240033F036 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1A49BF981C2A99190033F036 /* FBSDKCoreKit.framework */,
+				1A49BF991C2A99190033F036 /* FBSDKLoginKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,9 +301,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A49BF6C1C2A98C90033F036 /* SecondViewController.swift in Sources */,
+				1AB6BD131C2AAF6D00C615EB /* ContactPanelViewController.swift in Sources */,
+				1A452ABA1C2E823F00155EB0 /* Constants.swift in Sources */,
+				1A49BF6C1C2A98C90033F036 /* QRCardViewController.swift in Sources */,
+				1AB6BD151C2AB12D00C615EB /* SynqrCode.swift in Sources */,
+				1AB42DDB1C2E646500EBB59C /* DetailTableViewController.swift in Sources */,
+				1AB42DDD1C2E64B600EBB59C /* FBLoginViewController.swift in Sources */,
 				1A49BF681C2A98C90033F036 /* AppDelegate.swift in Sources */,
-				1A49BF6A1C2A98C90033F036 /* FirstViewController.swift in Sources */,
+				1A49BF6A1C2A98C90033F036 /* ScanViewController.swift in Sources */,
+				1AB42DD91C2E633800EBB59C /* EditDataCell.swift in Sources */,
+				1A49BF9E1C2A9C460033F036 /* SwiftyJSON.swift in Sources */,
+				1AB6BD171C2AB1B400C615EB /* MainTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +388,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = /Users/James/Documents/FacebookSDK;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -382,6 +433,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = /Users/James/Documents/FacebookSDK;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -401,10 +453,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Synqr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kim.james.Synqr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Synqr-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -412,10 +466,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Synqr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kim.james.Synqr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Synqr-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -486,6 +542,7 @@
 				1A49BF901C2A98C90033F036 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1A49BF911C2A98C90033F036 /* Build configuration list for PBXNativeTarget "SynqrTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +551,7 @@
 				1A49BF931C2A98C90033F036 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1A49BF941C2A98C90033F036 /* Build configuration list for PBXNativeTarget "SynqrUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +560,7 @@
 				1A49BF961C2A98C90033F036 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
