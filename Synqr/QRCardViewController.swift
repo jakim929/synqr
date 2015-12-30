@@ -49,7 +49,7 @@ class QRCardViewController : UIViewController
             
             content = synqrCode?.returnArray()
             statusLabel.text = "Your Synqr Code"
-            createQRCode()
+            displayQRCodeImage()
         }
     }
     
@@ -58,45 +58,11 @@ class QRCardViewController : UIViewController
         // Dispose of any resources that can be recreated.
     }
     
-    func createQRCode(){
-        
-        // create string to store in QR code, in format of JSON object
-        var jsonString : String = "{"
-        
-        jsonString += "\"check\":\"Synqr\","
-        
-        // concatonate based on string
-        for (var i = 0; i < content!.count; i++)
-        {
-            jsonString += "\""
-            jsonString += category[i]
-            jsonString += "\""
-            jsonString += ":"
-            jsonString += "\""
-            jsonString += content![i]
-            jsonString += "\""
-            if (i < content!.count - 1){
-                jsonString += ","
-            }
-        }
-        jsonString += "}"
-        print(jsonString)
-        
-        let data = jsonString.dataUsingEncoding(NSISOLatin1StringEncoding, allowLossyConversion: false)
-        
-        let filter = CIFilter(name: "CIQRCodeGenerator")
-        
-        filter!.setValue(data, forKey: "inputMessage")
-        filter!.setValue("Q", forKey: "inputCorrectionLevel")
-        qrcodeImage = filter!.outputImage
-        
-        displayQRCodeImage()
-        
-    }
-    
     
     // Display the QR Code after scaling it
     func displayQRCodeImage() {
+        qrcodeImage = synqrCode!.createQRCode()
+        
         let scaleX = imgQRCode.frame.size.width / qrcodeImage.extent.size.width
         let scaleY = imgQRCode.frame.size.height / qrcodeImage.extent.size.height
         

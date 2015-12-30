@@ -28,6 +28,12 @@ class SynqrCode : NSObject, NSCoding {
     var snapchat : String?
     var instagram : String?
     
+    var arrayForm : [String : String]{
+        
+        // OPTIONALS Might get Error
+        return ["fname": fname!, "lname": lname!, "phone": phone!, "email": email!, "facebook": facebook!, "snapchat": snapchat!, "instagram": instagram!]
+    }
+    
     override init(){
         
     }
@@ -45,6 +51,49 @@ class SynqrCode : NSObject, NSCoding {
     }
     
     // Mark: Generating QR Code
+    
+    func createQRCode() -> CIImage{
+        
+        var qrcodeImage: CIImage!
+        
+        // create string to store in QR code, in format of JSON object
+        let jsonString = self.createJSONString()
+        
+        let data = jsonString.dataUsingEncoding(NSISOLatin1StringEncoding, allowLossyConversion: false)
+        
+        let filter = CIFilter(name: "CIQRCodeGenerator")
+        
+        filter!.setValue(data, forKey: "inputMessage")
+        filter!.setValue("Q", forKey: "inputCorrectionLevel")
+        qrcodeImage = filter!.outputImage
+        
+        return qrcodeImage
+        
+    }
+    
+    func createJSONString() -> String{
+        
+        var jsonString : String = "{"
+        jsonString += "\"check\":\"Synqr\","
+        
+        for (key , value) in self.arrayForm {
+            jsonString += "\""
+            jsonString += key
+            jsonString += "\""
+            jsonString += ":"
+            jsonString += "\""
+            jsonString += value
+            jsonString += "\""
+            jsonString += ","
+            
+        }
+        jsonString.removeAtIndex(jsonString.endIndex.predecessor())
+        jsonString += "}"
+        
+        print(jsonString)
+        
+        return jsonString
+    }
     
     
     

@@ -10,8 +10,8 @@ import Foundation
 
 enum Handle : String {
     
-    case firstName = "firstName"
-    case lastName = "lastName"
+    case firstName = "fname"
+    case lastName = "lname"
     case phone = "phone"
     case email = "email"
     case facebook = "facebook"
