@@ -8,13 +8,30 @@
 
 import UIKit
 
+// MARK: Slide navigation controller code
+
+@objc
+protocol QRCardViewControllerDelegate{
+    optional func toggleLeftPanel()
+    optional func toggleRightPanel()
+    optional func collapseSidePanels()
+}
+
 class QRCardViewController : UIViewController
 {
     var synqrCode : SynqrCode?
     var qrcodeImage: CIImage!
+
+    var delegate: QRCardViewControllerDelegate?
     
     @IBOutlet weak var imgQRCode: UIImageView!
     @IBOutlet weak var statusLabel: UILabel!
+
+    
+    @IBAction func sidePanelTapped(sender: AnyObject) {
+        delegate?.toggleLeftPanel?()
+    }
+    
     
     @IBAction func unwindToQRCodeVC(segue: UIStoryboardSegue) {
         let sourceVC = segue.sourceViewController as! MainTableViewController
@@ -28,8 +45,7 @@ class QRCardViewController : UIViewController
         super.viewDidLoad()
         
         synqrCode = loadSynqrCode()
-        
-        
+    
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -71,6 +87,17 @@ class QRCardViewController : UIViewController
         return NSKeyedUnarchiver.unarchiveObjectWithFile(SynqrCode.ArchiveURL.path!) as? SynqrCode
     }
     
+}
+
+extension QRCardViewController: SidePanelViewControllerDelegate {
+    /*func animalSelected(animal: Animal) {
+        imageView.image = animal.image
+        titleLabel.text = animal.title
+        creatorLabel.text = animal.creator
+
+        delegate?.collapseSidePanels?()
+    }
+    */
 }
 
 
