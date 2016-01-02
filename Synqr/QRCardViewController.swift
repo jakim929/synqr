@@ -22,7 +22,11 @@ class QRCardViewController : UIViewController
         self.synqrCode = sourceVC.synqrCode
         
     }
-    
+
+    @IBAction func cancelToQRCodeVC(segue: UIStoryboardSegue) {
+        
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

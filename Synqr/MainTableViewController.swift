@@ -57,12 +57,31 @@ class MainTableViewController: UITableViewController {
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return Handle.allValues.count
+        
+        if section == 0 {
+            return 4
+        }
+        else
+        {
+            return Handle.allValues.count - 4
+        }
+
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Contact"
+        }
+        else
+        {
+            return "Social"
+        }
+        
     }
     
     
@@ -70,21 +89,34 @@ class MainTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("tableCell", forIndexPath: indexPath) as! EditDataCell
         
         // Configure the cell...
-        
-        if let icon = UIImage(named: Handle.allValues[indexPath.row].rawValue){
-            cell.iconImage.image = icon
-        }
-        cell.categoryLabel.text = handleName(rowToHandle(indexPath.row))
-        
-        if let value = synqrCode?.returnValue(rowToHandle(indexPath.row)){
-            cell.contentLabel.text = value
-            if (indexPath.row == 4){
-                cell.contentLabel.text = "Logged In"
-            }
-        }else{
-            cell.contentLabel.text = ""
+        if indexPath.section == 0{
+            cell.categoryLabel.text = handleName(rowToHandle(indexPath.row))
             
+            if let value = synqrCode?.returnValue(rowToHandle(indexPath.row)){
+                cell.contentLabel.text = value
+                
+            }else{
+                cell.contentLabel.text = ""
+            }
         }
+        else if indexPath.section == 1{
+            let row = 4 + indexPath.row
+            if let icon = UIImage(named: Handle.allValues[row].rawValue){
+                cell.iconImage.image = icon
+            }
+            cell.categoryLabel.text = handleName(rowToHandle(row))
+            
+            if let value = synqrCode?.returnValue(rowToHandle(row)){
+                cell.contentLabel.text = value
+                if (row == 4){
+                    cell.contentLabel.text = "Logged In"
+                }
+            }else{
+                cell.contentLabel.text = ""
+                
+            }
+        }
+
         
         
         

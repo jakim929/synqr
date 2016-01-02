@@ -150,15 +150,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" id="B6p-O3-dKP" customClass="EditDataCell" customModule="Synqr" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" rowHeight="84" id="B6p-O3-dKP" customClass="EditDataCell" customModule="Synqr" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="84"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B6p-O3-dKP" id="UH8-o4-X5d">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="83.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvK-Xo-lqQ">
-                                            <rect key="frame" x="49" y="11" width="124" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgP-D4-coP">
+                                            <rect key="frame" x="363" y="11" width="212" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="212" id="4Ea-yg-mce"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="abV-df-84c">
+                                            <rect key="frame" x="8" y="7" width="30" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="wNG-mR-5O2"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvK-Xo-lqQ">
+                                            <rect key="frame" x="109" y="7" width="124" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="124" id="Y29-42-ob0"/>
                                             </constraints>
@@ -172,21 +187,6 @@
                                             </attributedString>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgP-D4-coP">
-                                            <rect key="frame" x="363" y="11" width="212" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="212" id="4Ea-yg-mce"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="abV-df-84c">
-                                            <rect key="frame" x="8" y="7" width="30" height="30"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="30" id="wNG-mR-5O2"/>
-                                            </constraints>
-                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="sgP-D4-coP" firstAttribute="baseline" secondItem="cvK-Xo-lqQ" secondAttribute="baseline" id="8UT-IV-dy2"/>
@@ -206,6 +206,14 @@
                                     <outlet property="iconImage" destination="abV-df-84c" id="y3e-ql-cwD"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="77" id="9vT-BK-Ini">
+                                <rect key="frame" x="0.0" y="176" width="600" height="77"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9vT-BK-Ini" id="MrB-rg-1ia">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="76.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="zpe-A5-SAT" id="bWe-Tz-8np"/>
@@ -213,7 +221,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Your Information" id="4wq-sq-UbW">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="2fP-5d-la0"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="2fP-5d-la0">
+                            <connections>
+                                <segue destination="BSA-Nn-t0U" kind="unwind" unwindAction="cancelToQRCodeVC:" id="QMb-Im-qU0"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Confirm" id="SNN-Ko-rbc">
                             <connections>
                                 <segue destination="BSA-Nn-t0U" kind="unwind" unwindAction="unwindToQRCodeVC:" id="35O-Kv-NOs"/>
