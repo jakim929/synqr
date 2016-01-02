@@ -19,6 +19,8 @@ enum Handle : String {
     case instagram = "instagram"
     
     static let allValues = [firstName, lastName, phone, email, facebook, snapchat, instagram]
+    static let contact = [firstName, lastName, phone, email, facebook]
+    static let socialMedia = [facebook, snapchat, instagram]
     
 }
 

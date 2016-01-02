@@ -24,7 +24,7 @@
 		1AB42DDD1C2E64B600EBB59C /* FBLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB42DDC1C2E64B600EBB59C /* FBLoginViewController.swift */; };
 		1AB6BD131C2AAF6D00C615EB /* ContactPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB6BD121C2AAF6D00C615EB /* ContactPanelViewController.swift */; };
 		1AB6BD151C2AB12D00C615EB /* SynqrCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB6BD141C2AB12D00C615EB /* SynqrCode.swift */; };
-		1AB6BD171C2AB1B400C615EB /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB6BD161C2AB1B400C615EB /* MainTableViewController.swift */; };
+		1AB6BD171C2AB1B400C615EB /* InfoPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB6BD161C2AB1B400C615EB /* InfoPanelViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +69,7 @@
 		1AB42DDC1C2E64B600EBB59C /* FBLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBLoginViewController.swift; sourceTree = "<group>"; };
 		1AB6BD121C2AAF6D00C615EB /* ContactPanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactPanelViewController.swift; sourceTree = "<group>"; };
 		1AB6BD141C2AB12D00C615EB /* SynqrCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynqrCode.swift; sourceTree = "<group>"; };
-		1AB6BD161C2AB1B400C615EB /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		1AB6BD161C2AB1B400C615EB /* InfoPanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPanelViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +131,7 @@
 				1AB42DDA1C2E646500EBB59C /* DetailTableViewController.swift */,
 				1AB42DD81C2E633800EBB59C /* EditDataCell.swift */,
 				1AB42DDC1C2E64B600EBB59C /* FBLoginViewController.swift */,
-				1AB6BD161C2AB1B400C615EB /* MainTableViewController.swift */,
+				1AB6BD161C2AB1B400C615EB /* InfoPanelViewController.swift */,
 				1A49BF6B1C2A98C90033F036 /* QRCardViewController.swift */,
 				1A49BF691C2A98C90033F036 /* ScanViewController.swift */,
 				1A49BF9D1C2A9C460033F036 /* SwiftyJSON.swift */,
@@ -311,7 +311,7 @@
 				1A49BF6A1C2A98C90033F036 /* ScanViewController.swift in Sources */,
 				1AB42DD91C2E633800EBB59C /* EditDataCell.swift in Sources */,
 				1A49BF9E1C2A9C460033F036 /* SwiftyJSON.swift in Sources */,
-				1AB6BD171C2AB1B400C615EB /* MainTableViewController.swift in Sources */,
+				1AB6BD171C2AB1B400C615EB /* InfoPanelViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

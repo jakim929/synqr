@@ -17,8 +17,7 @@ class QRCardViewController : UIViewController
     @IBOutlet weak var statusLabel: UILabel!
     
     @IBAction func unwindToQRCodeVC(segue: UIStoryboardSegue) {
-        let sourceVC = segue.sourceViewController as! MainTableViewController
-        
+        let sourceVC = segue.sourceViewController as! InfoPanelViewController
         self.synqrCode = sourceVC.synqrCode
         
     }
