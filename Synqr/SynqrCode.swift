@@ -120,6 +120,26 @@ class SynqrCode : NSObject, NSCoding {
         return qrcodeImage
         
     }
+
+    func createQRCode(access : Access) -> CIImage{
+        
+        var qrcodeImage: CIImage!
+        
+        // create string to store in QR code, in format of JSON object
+        let jsonString = self.createJSONString()
+        
+        let data = jsonString.dataUsingEncoding(NSISOLatin1StringEncoding, allowLossyConversion: false)
+        
+        let filter = CIFilter(name: "CIQRCodeGenerator")
+        
+        filter!.setValue(data, forKey: "inputMessage")
+        filter!.setValue("Q", forKey: "inputCorrectionLevel")
+        qrcodeImage = filter!.outputImage
+        
+        return qrcodeImage
+        
+    }
+
     
     func createJSONString() -> String{
         
@@ -135,6 +155,46 @@ class SynqrCode : NSObject, NSCoding {
             jsonString += value
             jsonString += "\""
             jsonString += ","
+            
+        }
+        jsonString.removeAtIndex(jsonString.endIndex.predecessor())
+        jsonString += "}"
+        
+        print(jsonString)
+        
+        return jsonString
+    }
+    
+    func createJSONString(access : Access) -> String{
+        
+        var jsonString : String = "{"
+        jsonString += "\"check\":\"Synqr\","
+        
+        for (key , value) in self.arrayForm! {
+            
+            if (access.permission[key]! == true)
+            {
+                jsonString += "\""
+                jsonString += key
+                jsonString += "\""
+                jsonString += ":"
+                jsonString += "\""
+                jsonString += value
+                jsonString += "\""
+                jsonString += ","
+            }
+            else
+            {
+                jsonString += "\""
+                jsonString += key
+                jsonString += "\""
+                jsonString += ":"
+                jsonString += "\""
+                jsonString += ""
+                jsonString += "\""
+                jsonString += ","
+            }
+
             
         }
         jsonString.removeAtIndex(jsonString.endIndex.predecessor())
@@ -222,9 +282,26 @@ class SynqrCode : NSObject, NSCoding {
     static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("synqrCode")
     
-    
-    
-    
-    
-    
 }
+
+class Access{
+    var accessName : String!
+    var permission : [String : Bool] = ["fname" : false, "lname" : false, "phone" : false, "email" : false, "facebook" : false, "snapchat" : false, "instagram" : false]
+    
+    init(accessName : String, fname : Bool, lname : Bool, phone : Bool, email : Bool, facebook : Bool, snapchat : Bool, instagram : Bool)
+    {
+        self.accessName = accessName
+        permission["fname"] = fname
+        permission["lname"] = lname
+        permission["phone"] = phone
+        permission["email"] = email
+        permission["facebook"] = facebook
+        permission["snapchat"] = snapchat
+        permission["instagram"] = instagram
+    }
+}
+
+
+
+
+
