@@ -10,12 +10,7 @@ import UIKit
 
 class QRCardViewController : UIViewController
 {
-    
-    var category = ["fname", "lname", "phone", "email", "facebook", "snapchat", "instagram"]
-    var content: [String]?
-    
     var synqrCode : SynqrCode?
-    
     var qrcodeImage: CIImage!
     
     @IBOutlet weak var imgQRCode: UIImageView!
@@ -47,7 +42,6 @@ class QRCardViewController : UIViewController
         else
         {
             
-            content = synqrCode?.returnArray()
             statusLabel.text = "Your Synqr Code"
             displayQRCodeImage()
         }

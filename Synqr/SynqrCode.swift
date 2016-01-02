@@ -28,10 +28,26 @@ class SynqrCode : NSObject, NSCoding {
     var snapchat : String?
     var instagram : String?
     
-    var arrayForm : [String : String]{
-        
-        // OPTIONALS Might get Error
-        return ["fname": fname!, "lname": lname!, "phone": phone!, "email": email!, "facebook": facebook!, "snapchat": snapchat!, "instagram": instagram!]
+    var arrayForm : [String : String]?{
+        if self.fname != nil{
+            // OPTIONALS Might get Error
+            return ["fname": fname!, "lname": lname!, "phone": phone!, "email": email!, "facebook": facebook!, "snapchat": snapchat!, "instagram": instagram!]
+        }
+        else
+        {
+            return nil
+        }
+
+    }
+    
+    var fullName : String? {
+        if fname != "" && lname != "" {
+            return fname! + " " + lname!
+        }
+        else
+        {
+            return nil
+        }
     }
     
     override init(){
@@ -48,6 +64,40 @@ class SynqrCode : NSObject, NSCoding {
         self.instagram = instagram
         
         super.init()
+    }
+    
+    init?(dataFromString : String){
+        
+        super.init()
+
+        if let dataFromString = dataFromString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
+            let json = JSON(data: dataFromString)
+            
+            if let checkField = json["check"].string{
+                if (checkField == "Synqr")
+                {
+                    for(type, content) in json {
+                        switch type {
+                        case "fname" : self.fname = content.string
+                        case "lname" : self.lname = content.string
+                        case "phone" : self.phone = content.string
+                        case "email" : self.email = content.string
+                        case "facebook" : self.facebook = content.string
+                        case "snapchat" : self.snapchat = content.string
+                        case "instagram" : self.instagram = content.string
+                        default : break
+                            
+                        }
+                    }
+                }
+                else
+                {
+                    return nil
+                }
+            }
+            
+        }
+
     }
     
     // Mark: Generating QR Code
@@ -76,7 +126,7 @@ class SynqrCode : NSObject, NSCoding {
         var jsonString : String = "{"
         jsonString += "\"check\":\"Synqr\","
         
-        for (key , value) in self.arrayForm {
+        for (key , value) in self.arrayForm! {
             jsonString += "\""
             jsonString += key
             jsonString += "\""

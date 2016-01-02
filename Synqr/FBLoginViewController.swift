@@ -54,7 +54,6 @@ class FBLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             if result.grantedPermissions.contains("email")
             {
                 self.getSaveFBUserID()
-                
             }
         }
     }
@@ -79,19 +78,10 @@ class FBLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                     
                     self.currentSynqrCode?.facebook = fbid
                     
-                    /*self.infodict = result as! NSDictionary
-                    print(result)
-                    print(self.infodict)
-                    NSLog(self.infodict.objectForKey("picture")?.objectForKey("data")?.objectForKey("url") as! String)
-                    */
                 }
             })
         }
     }
-    
-    
-    
-    
     
     /*
     // MARK: - Navigation

@@ -13,12 +13,12 @@ import Contacts
 
 class ContactPanelViewController: UIViewController
 {
-    
-    var contactDetail:[String : String]?
+    var synqrCode : SynqrCode?
     
     @IBOutlet weak var contactInfo: UILabel!
+    @IBOutlet weak var userPicture: UIImageView!
+    
     @IBAction func returnButton(sender: UIButton) {
-        
         
     }
     
@@ -33,26 +33,32 @@ class ContactPanelViewController: UIViewController
         }
     }
     @IBAction func addSnapchat(sender: AnyObject) {
-        addToSnapchat(contactDetail!["snapchat"]!)
+        addToSnapchat(synqrCode!.snapchat!)
     }
     
     @IBAction func addFacebook(sender: UIButton) {
-        addFBFriend(contactDetail!["facebook"]!)
+        addFBFriend(synqrCode!.facebook!)
     }
     
     @IBAction func addInstagram(sender: UIButton) {
-        addToInstagram(contactDetail!["instagram"]!)
+        addToInstagram(synqrCode!.instagram!)
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.contactInfo.text = contactDetail!["fname"]! + " " + contactDetail!["lname"]!
+        //contactDetail = ["check":"Synqr","snapchat":"james_wookim","phone":"8573008238","lname":"Kim","instagram":"","email":"sunwookim@college.harvard.edu","facebook":"10207065588413634","fname":"James"]
+        
+        self.contactInfo.text = synqrCode!.fullName
         
         
     }
     
+    override func viewDidAppear(animated: Bool) {
+        getProfilePicture(synqrCode!.facebook!)
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -64,12 +70,12 @@ class ContactPanelViewController: UIViewController
         
         // prepare contact information fields
         let newContact = CNMutableContact()
-        newContact.givenName = contactDetail!["fname"]!
-        newContact.familyName = contactDetail!["lname"]!
+        newContact.givenName = synqrCode!.fname!
+        newContact.familyName = synqrCode!.lname!
         
-        newContact.phoneNumbers = [CNLabeledValue(label:CNLabelPhoneNumberMobile, value: CNPhoneNumber(stringValue: contactDetail!["phone"]!))]
+        newContact.phoneNumbers = [CNLabeledValue(label:CNLabelPhoneNumberMobile, value: CNPhoneNumber(stringValue: synqrCode!.phone!))]
         
-        let homeEmail = CNLabeledValue(label: CNLabelHome, value: contactDetail!["email"]!)
+        let homeEmail = CNLabeledValue(label: CNLabelHome, value: synqrCode!.email!)
         newContact.emailAddresses = [homeEmail]
         
         // alert user
@@ -91,6 +97,7 @@ class ContactPanelViewController: UIViewController
     }
     
     
+    
     // adds user to facebook by opening facebook app
     func addFBFriend(fbID : String){
         
@@ -107,7 +114,6 @@ class ContactPanelViewController: UIViewController
                 UIApplication.sharedApplication().openURL(NSURL(string: "http://facebook.com/" + fbID)!)
             }
         }
-        
     }
     
     func addToInstagram(instaID : String){
@@ -150,13 +156,50 @@ class ContactPanelViewController: UIViewController
                 UIApplication.sharedApplication().openURL(NSURL(string: "https://www.youtube.com/watch?v=dQw4w9WgXcQ")!)
             }
         }
-        
     }
     
+    /*
+    func getProfilePicture(fbUserID : String) -> String {
+        
+        let pictureURL = "https://graph.facebook.com/\(fbUserID)/picture?type=large&return_ssl_resources=1"
+        
+        var URLRequest = NSURL(string: pictureURL)
+        var URLRequestNeeded = NSURLRequest(URL: URLRequest!)
+        
+        NSURLConnection.sendAsynchronousRequest(URLRequestNeeded, queue: NSOperationQueue.mainQueue(), completionHandler: {(response: NSURLResponse,data: NSData, error: NSError) -> Void in
+            if error == nil {
+                var picture = PFFile(data: data)
+                PFUser.currentUser().setObject(picture, forKey: "profilePicture")
+                PFUser.currentUser().saveInBackground()
+            }
+            else {
+                print("Error: \(error.localizedDescription)")
+            }
+        })
+        
+        let pictureRequest = FBSDKGraphRequest(graphPath: "me/picture?type=large&redirect=false", parameters: nil)
+        pictureRequest.startWithCompletionHandler({
+            (connection, result, error: NSError!) -> Void in
+            if error == nil {
+                print("\(result)")
+            } else {
+                print("\(error)")
+            }
+        })
+        
+        
+    }
+*/
     
-    
-    
-    
-    
+    func getProfilePicture(fbUserID: String){
+        
+        // FIX UNSAFE HTTP REQUEST (CHANGED IN INFO.PLIST TEMPORARILY)!
+        
+        let facebookProfileUrl = NSURL(string: "http://graph.facebook.com/\(fbUserID)/picture?type=large")
+        
+        if let data = NSData(contentsOfURL: facebookProfileUrl!) {
+            userPicture.image = UIImage(data: data)
+        }
+    }
     
 }

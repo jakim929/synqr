@@ -16,7 +16,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     @IBOutlet weak var qrCodeResult: UILabel!
     @IBOutlet weak var testLabel: UILabel!
     
-    @IBAction func unwindToVC(segue: UIStoryboardSegue) {
+    @IBAction func unwindToScanVC(segue: UIStoryboardSegue) {
         
     }
     
@@ -24,16 +24,14 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
     
-    var contactDetail:[String : String]?
+    var synqrCode : SynqrCode?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         // Do any additional setup after loading the view, typically from a nib.
-        
-        contactDetail = [String : String]()
-        
         
         self.configureVideoCapture()
         self.addVideoPreviewLayer()
@@ -107,6 +105,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             qrCodeResult.text = "Please Point the Camera at a Card"
             return
         }
+        
         let objMetadataMachineReadableCodeObject = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
         if objMetadataMachineReadableCodeObject.type == AVMetadataObjectTypeQRCode {
             let objBarCode = videoPreviewLayer?.transformedMetadataObjectForMetadataObject(objMetadataMachineReadableCodeObject as AVMetadataMachineReadableCodeObject) as! AVMetadataMachineReadableCodeObject
@@ -115,7 +114,20 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
                 let qrString = objMetadataMachineReadableCodeObject.stringValue
                 qrCodeResult.text = qrString
                 
+                if let decoded = SynqrCode(dataFromString: qrString) {
+                    
+                    self.synqrCode = decoded
+                    performSegueWithIdentifier("ContactPanel", sender: nil)
+                    
+                } else {
+                    
+                    qrCodeResult.text = "Not a valid Synqr Code"
+                }
+                
+                /*
                 if let dataFromString = qrString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
+                    
+                    /*
                     let json = JSON(data: dataFromString)
                     
                     if let checkField = json["check"].string{
@@ -126,35 +138,31 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
                             for(type, content) in json {
                                 contactDetail![type] = content.string
                             }
+
                             performSegueWithIdentifier("ContactPanel", sender: nil)
                         }
                         else
                         {
                             qrCodeResult.text = "Not a valid Synqr Code"
                         }
-                        
-                        
+
                     }
                     else
                     {
                         qrCodeResult.text = "Not a valid Synqr Code"
                     }
-                    
+                    */
                 }
-                
+                */
             }
-            
-            
-            
-            
         }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)
     {
-        if segue.identifier == "PopContactPanel"{
+        if segue.identifier == "ContactPanel"{
             let vc = segue.destinationViewController as! ContactPanelViewController
-            vc.contactDetail = self.contactDetail
+            vc.synqrCode = self.synqrCode
         }
     }
     
