@@ -31,7 +31,7 @@ class SynqrCode : NSObject, NSCoding {
     var arrayForm : [String : String]?{
         if self.fname != nil{
             // OPTIONALS Might get Error
-            return ["fname": fname!, "lname": lname!, "phone": phone!, "email": email!, "facebook": facebook!, "snapchat": snapchat!, "instagram": instagram!]
+            return ["fn": fname!, "ln": lname!, "ph": phone!, "em": email!, "fb": facebook!, "sc": snapchat!, "ig": instagram!]
         }
         else
         {
@@ -78,13 +78,13 @@ class SynqrCode : NSObject, NSCoding {
                 {
                     for(type, content) in json {
                         switch type {
-                        case "fname" : self.fname = content.string
-                        case "lname" : self.lname = content.string
-                        case "phone" : self.phone = content.string
-                        case "email" : self.email = content.string
-                        case "facebook" : self.facebook = content.string
-                        case "snapchat" : self.snapchat = content.string
-                        case "instagram" : self.instagram = content.string
+                        case "fn" : self.fname = content.string
+                        case "ln" : self.lname = content.string
+                        case "ph" : self.phone = content.string
+                        case "em" : self.email = content.string
+                        case "fb" : self.facebook = content.string
+                        case "sc" : self.snapchat = content.string
+                        case "ig" : self.instagram = content.string
                         default : break
                             
                         }
@@ -286,18 +286,18 @@ class SynqrCode : NSObject, NSCoding {
 
 class Access{
     var accessName : String!
-    var permission : [String : Bool] = ["fname" : false, "lname" : false, "phone" : false, "email" : false, "facebook" : false, "snapchat" : false, "instagram" : false]
+    var permission : [String : Bool] = ["fn" : false, "ln" : false, "ph" : false, "em" : false, "fb" : false, "sc" : false, "ig" : false]
     
     init(accessName : String, fname : Bool, lname : Bool, phone : Bool, email : Bool, facebook : Bool, snapchat : Bool, instagram : Bool)
     {
         self.accessName = accessName
-        permission["fname"] = fname
-        permission["lname"] = lname
-        permission["phone"] = phone
-        permission["email"] = email
-        permission["facebook"] = facebook
-        permission["snapchat"] = snapchat
-        permission["instagram"] = instagram
+        permission["fn"] = fname
+        permission["ln"] = lname
+        permission["ph"] = phone
+        permission["em"] = email
+        permission["fb"] = facebook
+        permission["sc"] = snapchat
+        permission["ig"] = instagram
     }
 }
 
