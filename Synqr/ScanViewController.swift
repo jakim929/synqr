@@ -14,7 +14,12 @@ import AudioToolbox
 class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     @IBOutlet weak var qrCodeResult: UILabel!
-    @IBOutlet weak var testLabel: UILabel!
+    
+    @IBOutlet weak var cardButton: UIButton!
+    @IBOutlet weak var cameraButton: UIButton!
+    
+    @IBOutlet weak var blurView: UIVisualEffectView!
+    @IBOutlet weak var imgQRCode: UIImageView!
     
     @IBAction func unwindToScanVC(segue: UIStoryboardSegue) {
         
@@ -24,12 +29,18 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
     
+    var cardToggle : Bool = false
+    var cameraToggle : Bool = false
+    
     var synqrCode : SynqrCode?
+    var qrcodeImage: CIImage!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        cardSelected(true)
+        cameraSelected(false)
         
         // Do any additional setup after loading the view, typically from a nib.
         
@@ -38,16 +49,74 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         self.initializeQRView()
         
         
+        synqrCode = loadSynqrCode()
+            
+            
+            /*SynqrCode(fname: "James", lname: "Kim", phone: "8573008238", email: "sunwookim@college.harvard.edu", facebook: "12312412312123", snapchat: "james_wookim", instagram: "")*/
+        
+        displayQRCodeImage()
+        
         // Bring labels to front above the video layer
+        
+        self.view.bringSubviewToFront(blurView)
         self.view.bringSubviewToFront(qrCodeResult)
+        self.view.bringSubviewToFront(cardButton)
+        self.view.bringSubviewToFront(cameraButton)
+        self.view.bringSubviewToFront(imgQRCode)
+        
+
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+    
+        super.viewDidAppear(animated)
+        
+
+        
         
         
     }
+    
+    @IBAction func cardPressed(sender: AnyObject) {
+        if cardToggle == true {
+            cardSelected(false)
+        }
+        else
+        {
+            cardSelected(true)
+        }
+    }
+    
+    @IBAction func cameraPressed(sender: AnyObject) {
+        if cameraToggle == true {
+            cameraSelected(false)
+        }
+        else
+        {
+            cameraSelected(true)
+        }
+    }
+    
+    func cardSelected(bool : Bool){
+        self.cardToggle = bool
+        self.cardButton.selected = bool
+        self.blurView.hidden = !bool
+        self.imgQRCode.hidden = !bool
+    }
+    func cameraSelected(bool : Bool){
+        self.cameraToggle = bool
+        self.cameraButton.selected = bool
+        self.blurView.hidden = bool
+        //self.imgQRCode.hidden = bool
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
     func configureVideoCapture() {
         
@@ -158,6 +227,18 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         }
     }
     
+    // Display the QR Code after scaling it
+    func displayQRCodeImage() {
+        qrcodeImage = synqrCode!.createQRCode()
+        
+        let scaleX = imgQRCode.frame.size.width / qrcodeImage.extent.size.width
+        let scaleY = imgQRCode.frame.size.height / qrcodeImage.extent.size.height
+        
+        let transformedImage = qrcodeImage.imageByApplyingTransform(CGAffineTransformMakeScale(scaleX, scaleY))
+        
+        imgQRCode.image = UIImage(CIImage: transformedImage)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)
     {
         if segue.identifier == "ContactPanel"{
@@ -166,7 +247,9 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         }
     }
     
-    
+    func loadSynqrCode() -> SynqrCode? {
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(SynqrCode.ArchiveURL.path!) as? SynqrCode
+    }
     
     
 }
