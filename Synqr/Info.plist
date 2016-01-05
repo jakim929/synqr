@@ -28,6 +28,13 @@
 	<string>Synqr</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>YanoneKaffeesatz-Bold.ttf</string>
+		<string>YanoneKaffeesatz-Light.ttf</string>
+		<string>YanoneKaffeesatz-Regular.ttf</string>
+		<string>YanoneKaffeesatz-Thin.ttf</string>
+	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>LSApplicationQueriesSchemes</key>

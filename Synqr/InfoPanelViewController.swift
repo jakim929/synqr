@@ -12,16 +12,16 @@ import Foundation
 class InfoPanelViewController: UIViewController{
     
     var synqrCode : SynqrCode?
-    
-    @IBOutlet weak var tableView: UITableView!
+
     @IBOutlet weak var userPicture: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     
     @IBAction func saveToInfoPanelVC (segue:UIStoryboardSegue) {
         
-        tableView.reloadData()
+        //tableView.reloadData()
         
     }
     
@@ -33,11 +33,11 @@ class InfoPanelViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        /*
         tableView.dataSource = self
         tableView.delegate = self
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "tableCell")
-        
+        */
         if let loadCode = loadSynqrCode() {
             synqrCode = loadCode
         }
@@ -45,6 +45,14 @@ class InfoPanelViewController: UIViewController{
         {
             synqrCode = SynqrCode()
         }
+        
+        // Masking the image
+        
+        //userPicture.image = getProfilePicture((synqrCode?.facebook)!)
+        userPicture.layer.cornerRadius = userPicture.frame.size.height / 2
+        userPicture.layer.masksToBounds = true
+        userPicture.layer.borderWidth = 0
+
         
         
         loadUpperHalf()
@@ -58,7 +66,7 @@ class InfoPanelViewController: UIViewController{
     }
     
     override func viewDidAppear(animated: Bool) {
-        tableView.reloadData()
+        //tableView.reloadData()
 
     }
     
@@ -72,22 +80,7 @@ class InfoPanelViewController: UIViewController{
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "edit" {
-            
-            let path = tableView.indexPathForSelectedRow
-            
-            let detailViewController = segue.destinationViewController as! DetailTableViewController
-            
-            detailViewController.type = Handle.allValues[path!.row]
-            detailViewController.currentSynqrCode = synqrCode
-            
-        }
-        else if segue.identifier == "fbLogin"
-        {
-            let fbLoginViewController = segue.destinationViewController as! FBLoginViewController
-            
-            fbLoginViewController.currentSynqrCode = synqrCode
-        }
+
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
     }
@@ -97,7 +90,6 @@ class InfoPanelViewController: UIViewController{
         phoneLabel.text = synqrCode?.phone
         emailLabel.text = synqrCode?.email
         
-        getProfilePicture((synqrCode?.facebook)!)
     }
     
     // Saves the code details to the phone
@@ -113,15 +105,40 @@ class InfoPanelViewController: UIViewController{
         return NSKeyedUnarchiver.unarchiveObjectWithFile(SynqrCode.ArchiveURL.path!) as? SynqrCode
     }
     
-    func getProfilePicture(fbUserID: String){
+    func getProfilePicture(fbUserID: String) -> UIImage?{
         
         // FIX UNSAFE HTTP REQUEST (CHANGED IN INFO.PLIST TEMPORARILY)!
         
         let facebookProfileUrl = NSURL(string: "http://graph.facebook.com/\(fbUserID)/picture?type=large")
         
         if let data = NSData(contentsOfURL: facebookProfileUrl!) {
-            userPicture.image = UIImage(data: data)
+            return UIImage(data: data)
         }
+        else
+        {
+            return nil
+
+        }
+    }
+    
+    
+    func maskImage(image:UIImage, mask:(UIImage))->UIImage{
+        
+        let imageReference = image.CGImage
+        let maskReference = mask.CGImage
+        
+        let imageMask = CGImageMaskCreate(CGImageGetWidth(maskReference),
+            CGImageGetHeight(maskReference),
+            CGImageGetBitsPerComponent(maskReference),
+            CGImageGetBitsPerPixel(maskReference),
+            CGImageGetBytesPerRow(maskReference),
+            CGImageGetDataProvider(maskReference), nil, true)
+        
+        let maskedReference = CGImageCreateWithMask(imageReference, imageMask)
+        
+        let maskedImage = UIImage(CGImage:maskedReference!)
+        
+        return maskedImage
     }
     
 }

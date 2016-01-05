@@ -15,8 +15,10 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     
     @IBOutlet weak var qrCodeResult: UILabel!
     
-    @IBOutlet weak var cardButton: UIButton!
-    @IBOutlet weak var cameraButton: UIButton!
+    @IBOutlet weak var cameraCardButton: UIButton!
+    
+    @IBOutlet weak var settingsButton: UIButton!
+    
     
     @IBOutlet weak var blurView: UIVisualEffectView!
     @IBOutlet weak var imgQRCode: UIImageView!
@@ -29,8 +31,10 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
     
-    var cardToggle : Bool = false
-    var cameraToggle : Bool = false
+    
+    // True: camera, False: card
+    var cameraCardToggle : Bool = false
+    
     
     var synqrCode : SynqrCode?
     var qrcodeImage: CIImage!
@@ -39,9 +43,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        cardSelected(true)
-        cameraSelected(false)
-        
+        cameraSelected()
         // Do any additional setup after loading the view, typically from a nib.
         
         self.configureVideoCapture()
@@ -60,9 +62,9 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         
         self.view.bringSubviewToFront(blurView)
         self.view.bringSubviewToFront(qrCodeResult)
-        self.view.bringSubviewToFront(cardButton)
-        self.view.bringSubviewToFront(cameraButton)
+        self.view.bringSubviewToFront(cameraCardButton)
         self.view.bringSubviewToFront(imgQRCode)
+        self.view.bringSubviewToFront(settingsButton)
         
 
     }
@@ -77,37 +79,31 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         
     }
     
-    @IBAction func cardPressed(sender: AnyObject) {
-        if cardToggle == true {
-            cardSelected(false)
+
+    @IBAction func cameraCardPressed(sender: AnyObject) {
+        if cameraCardToggle == true {
+            cardSelected()
         }
         else
         {
-            cardSelected(true)
+            cameraSelected()
         }
     }
     
-    @IBAction func cameraPressed(sender: AnyObject) {
-        if cameraToggle == true {
-            cameraSelected(false)
-        }
-        else
-        {
-            cameraSelected(true)
-        }
+    
+    func cameraSelected(){
+        self.cameraCardToggle = true
+        self.cameraCardButton.selected = true
+        self.blurView.hidden = true
+        self.imgQRCode.hidden = true
     }
     
-    func cardSelected(bool : Bool){
-        self.cardToggle = bool
-        self.cardButton.selected = bool
-        self.blurView.hidden = !bool
-        self.imgQRCode.hidden = !bool
-    }
-    func cameraSelected(bool : Bool){
-        self.cameraToggle = bool
-        self.cameraButton.selected = bool
-        self.blurView.hidden = bool
-        //self.imgQRCode.hidden = bool
+    
+    func cardSelected(){
+        self.cameraCardToggle = false
+        self.cameraCardButton.selected = false
+        self.blurView.hidden = false
+        self.imgQRCode.hidden = false
     }
     
     

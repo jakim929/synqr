@@ -25,6 +25,11 @@
 		1AB6BD131C2AAF6D00C615EB /* ContactPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB6BD121C2AAF6D00C615EB /* ContactPanelViewController.swift */; };
 		1AB6BD151C2AB12D00C615EB /* SynqrCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB6BD141C2AB12D00C615EB /* SynqrCode.swift */; };
 		1AB6BD171C2AB1B400C615EB /* InfoPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB6BD161C2AB1B400C615EB /* InfoPanelViewController.swift */; };
+		1AB7CEE91C3BA2580006C3A4 /* YanoneKaffeesatz-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1AB7CEE51C3BA2580006C3A4 /* YanoneKaffeesatz-Bold.ttf */; };
+		1AB7CEEA1C3BA2580006C3A4 /* YanoneKaffeesatz-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1AB7CEE61C3BA2580006C3A4 /* YanoneKaffeesatz-Light.ttf */; };
+		1AB7CEEB1C3BA2580006C3A4 /* YanoneKaffeesatz-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1AB7CEE71C3BA2580006C3A4 /* YanoneKaffeesatz-Regular.ttf */; };
+		1AB7CEEC1C3BA2580006C3A4 /* YanoneKaffeesatz-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1AB7CEE81C3BA2580006C3A4 /* YanoneKaffeesatz-Thin.ttf */; };
+		1AB7CEEE1C3BB9B10006C3A4 /* profilepicture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1AB7CEED1C3BB9B10006C3A4 /* profilepicture.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +75,11 @@
 		1AB6BD121C2AAF6D00C615EB /* ContactPanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactPanelViewController.swift; sourceTree = "<group>"; };
 		1AB6BD141C2AB12D00C615EB /* SynqrCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynqrCode.swift; sourceTree = "<group>"; };
 		1AB6BD161C2AB1B400C615EB /* InfoPanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPanelViewController.swift; sourceTree = "<group>"; };
+		1AB7CEE51C3BA2580006C3A4 /* YanoneKaffeesatz-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YanoneKaffeesatz-Bold.ttf"; sourceTree = "<group>"; };
+		1AB7CEE61C3BA2580006C3A4 /* YanoneKaffeesatz-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YanoneKaffeesatz-Light.ttf"; sourceTree = "<group>"; };
+		1AB7CEE71C3BA2580006C3A4 /* YanoneKaffeesatz-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YanoneKaffeesatz-Regular.ttf"; sourceTree = "<group>"; };
+		1AB7CEE81C3BA2580006C3A4 /* YanoneKaffeesatz-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YanoneKaffeesatz-Thin.ttf"; sourceTree = "<group>"; };
+		1AB7CEED1C3BB9B10006C3A4 /* profilepicture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profilepicture.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,11 +112,12 @@
 		1A49BF5B1C2A98C90033F036 = {
 			isa = PBXGroup;
 			children = (
+				1A49BF651C2A98C90033F036 /* Products */,
 				1A49BF9C1C2A99240033F036 /* Frameworks */,
 				1A49BF661C2A98C90033F036 /* Synqr */,
 				1A49BF7D1C2A98C90033F036 /* SynqrTests */,
 				1A49BF881C2A98C90033F036 /* SynqrUITests */,
-				1A49BF651C2A98C90033F036 /* Products */,
+				1AB7CEE41C3BA1E50006C3A4 /* Resources */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,22 +134,22 @@
 		1A49BF661C2A98C90033F036 /* Synqr */ = {
 			isa = PBXGroup;
 			children = (
-				1A49BF971C2A98FA0033F036 /* Synqr-Bridging-Header.h */,
-				1A49BF751C2A98C90033F036 /* Info.plist */,
 				1A49BF671C2A98C90033F036 /* AppDelegate.swift */,
+				1A49BF701C2A98C90033F036 /* Assets.xcassets */,
 				1A452AB91C2E823F00155EB0 /* Constants.swift */,
 				1AB6BD121C2AAF6D00C615EB /* ContactPanelViewController.swift */,
 				1AB42DDA1C2E646500EBB59C /* DetailTableViewController.swift */,
 				1AB42DD81C2E633800EBB59C /* EditDataCell.swift */,
 				1AB42DDC1C2E64B600EBB59C /* FBLoginViewController.swift */,
+				1A49BF751C2A98C90033F036 /* Info.plist */,
 				1AB6BD161C2AB1B400C615EB /* InfoPanelViewController.swift */,
+				1A49BF721C2A98C90033F036 /* LaunchScreen.storyboard */,
+				1A49BF6D1C2A98C90033F036 /* Main.storyboard */,
 				1A49BF6B1C2A98C90033F036 /* QRCardViewController.swift */,
 				1A49BF691C2A98C90033F036 /* ScanViewController.swift */,
 				1A49BF9D1C2A9C460033F036 /* SwiftyJSON.swift */,
+				1A49BF971C2A98FA0033F036 /* Synqr-Bridging-Header.h */,
 				1AB6BD141C2AB12D00C615EB /* SynqrCode.swift */,
-				1A49BF701C2A98C90033F036 /* Assets.xcassets */,
-				1A49BF721C2A98C90033F036 /* LaunchScreen.storyboard */,
-				1A49BF6D1C2A98C90033F036 /* Main.storyboard */,
 			);
 			path = Synqr;
 			sourceTree = "<group>";
@@ -168,6 +179,18 @@
 				1A49BF991C2A99190033F036 /* FBSDKLoginKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1AB7CEE41C3BA1E50006C3A4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1AB7CEE51C3BA2580006C3A4 /* YanoneKaffeesatz-Bold.ttf */,
+				1AB7CEE61C3BA2580006C3A4 /* YanoneKaffeesatz-Light.ttf */,
+				1AB7CEE71C3BA2580006C3A4 /* YanoneKaffeesatz-Regular.ttf */,
+				1AB7CEE81C3BA2580006C3A4 /* YanoneKaffeesatz-Thin.ttf */,
+				1AB7CEED1C3BB9B10006C3A4 /* profilepicture.jpg */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,9 +297,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AB7CEEC1C3BA2580006C3A4 /* YanoneKaffeesatz-Thin.ttf in Resources */,
 				1A49BF741C2A98C90033F036 /* LaunchScreen.storyboard in Resources */,
+				1AB7CEE91C3BA2580006C3A4 /* YanoneKaffeesatz-Bold.ttf in Resources */,
 				1A49BF711C2A98C90033F036 /* Assets.xcassets in Resources */,
+				1AB7CEEA1C3BA2580006C3A4 /* YanoneKaffeesatz-Light.ttf in Resources */,
 				1A49BF6F1C2A98C90033F036 /* Main.storyboard in Resources */,
+				1AB7CEEE1C3BB9B10006C3A4 /* profilepicture.jpg in Resources */,
+				1AB7CEEB1C3BA2580006C3A4 /* YanoneKaffeesatz-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
