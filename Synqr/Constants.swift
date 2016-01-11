@@ -34,7 +34,6 @@ func handleName (type : Handle)->String{
     case .snapchat : return "Snapchat"
     case .instagram : return "Instagram"
 
-        
     }
 }
 
